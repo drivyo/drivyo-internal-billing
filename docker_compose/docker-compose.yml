@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=transporter
+      - POSTGRES_USER=HotWheels
+      - POSTGRES_DB=sharedDataDB
+    volumes:
+      - shareddata-postgres-volume:/var/lib/postgresql/data
+volumes:
+  shareddata-postgres-volume:

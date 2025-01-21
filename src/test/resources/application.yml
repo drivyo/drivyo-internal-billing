@@ -1,0 +1,34 @@
+logging:
+  level:
+    org.springframework: INFO
+    root: INFO
+spring:
+  application:
+    name: sharedData
+  profiles:
+    include: secrets
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  datasource:
+    ## Remember to create first your database, just the database not the tables
+    ## Add spring.datasource.url/username/password properties to application-secrets.yml
+    ## Example url -> jdbc:postgresql://ip:port/databaseName
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+backoffice:
+  security:
+    jwt:
+      public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv9uggGz64SgO3VG6phAQnCjr2XyTfR8XmuLyQ92J58vWh3s9FL9b29fxZHKQLrQeKy3Q13hbiLmHBfjgnVe4sutcAMaPchHH2mAdTzvBL7Sp1k+7sgDKaF4qhMEjkQLMQMItzxlJCJJIPYndKMv/cIWCT80jmk0K3POOJOIBXHRn+3DS+QKPJDpAHivevosvWvWGrDS61n8wjNNVqhBUUGuRPedKCG+ACDRg2C08WgDNJY3TGKaxVM0Ye0IEpsz8LpANwD77T6SYTGNoSTCz0c1QJ3cuLezvnOE69uyHutzABFRn19clfjNoxLoAqLKMry8jibfr+XwaqmsOz6lE5wIDAQAB
+      private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/26CAbPrhKA7dUbqmEBCcKOvZfJN9Hxea4vJD3Ynny9aHez0Uv1vb1/FkcpAutB4rLdDXeFuIuYcF+OCdV7iy61wAxo9yEcfaYB1PO8EvtKnWT7uyAMpoXiqEwSORAsxAwi3PGUkIkkg9id0oy/9whYJPzSOaTQrc844k4gFcdGf7cNL5Ao8kOkAeK96+iy9a9YasNLrWfzCM01WqEFRQa5E950oIb4AINGDYLTxaAM0ljdMYprFUzRh7QgSmzPwukA3APvtPpJhMY2hJMLPRzVAndy4t7O+c4Tr27Ie63MAEVGfX1yV+M2jEugCosoyvLyOJt+v5fBqqaw7PqUTnAgMBAAECggEABhGTZRyNXvveZH/GUKRnchkVRL7dB3MpUvvkv+LNDujyszxhtTtMU4rkFtJM3z1RSvpbBcXH125O6BB0QmXY8MfjFB8zwF7xnGW3556zQKgNSzsga8P8owp/e82EK30UKuQ5gLiDB+Ngp5mpxjWVseB3O8D4ZFQViOGnWGFRu7Pg01aKj4Cv9ji1dthESD3fcfSc8owdGi/z4ge3ZxDfbocDEjqlCG1OwlP8i8dlroUZh2pu9OtHSuNXDvBM7Lt5vvGD7jJXrH6lEEuzxqe1q4oFC7OR834vuVS6Oq2hp1XYPbduX/aajm2mltp6K9s5mXM8oWGUBY60kWX8uUOisQKBgQD0q3tYhr4+hk/aINXR6ddf2paC56LTj8aS11DWjaFnhRL8UhCfmXugsf4zTm7TGh/YmTlu91AUs+mBNqUsFXefDb9cHeSfT/3FoEaYzRON9IfHfYKpJEamnOPAoCE9g/vXMWdIokD4YHZ+QsEX4snSIjMQR1sN7w3QdKY/NEqqjwKBgQDIvhGlqc7Q79TzErvK0rUVivv8VqdvNFBhMyawKhth8HZkmxwJRE4+9wfCn1yr8hr9n3nDbETtIAIZpEZrBpoXDmHvyVfIMrz7jkGaNyUif9N6X4le/oSrHNTnNZeBa2zBXEpY9II60eNR7qMz0Lo9PvUmUwIskLNuIjA8AJbMKQKBgBcXK+/h34h1EooqeSNzZzETpwq5o6NFuV7YVTe6bBYh9/W6JPl6+bDju3LKHylrGMBPTZ1MV9FsXUgliRcM+5oWKQ4fgBkM6o1BIAiBqivGfR31mWQvGT/WJKRkOF7e2uCnN/Eh5vHJ4MTvtdt0OsnLEnih01UQT4RxzdK/M6C/AoGBAMDrYTxLeBX2FzpPa6idXShJ/Kdig+Dsbr8rEGhG3y/9j1pactQ5D9WVRKD21HHu55+MjtGPkKIum7YW2RHsM1QrH1X5suIUWOiMq2FQ0+BW5l95xyRDCC8GM1nMeEEJg2hEkLLysOFkasmHxNJ8Ky/G/ISLS9CWc8pJEv/nNQUZAoGAGs+wTOe7qxaslFuBlzMRKqKNFeRz011mNJaXyVqWzVp5hQx0fFjN6qLuXx67b6axmbC/1OwBn51r6jIePvCGnE3hjp9aVuxRF8JeCIjzVJH6bpASFoUjycl89+WuHRx20NPtFa4Y0Mf6L87YC0LKlRE+1LeX+aM0iCgmJVTXF+A=
+
