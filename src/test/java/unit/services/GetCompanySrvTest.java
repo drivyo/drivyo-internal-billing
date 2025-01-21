@@ -5,7 +5,6 @@ import Drivyo.sharedData.db.CompanyRepo;
 import Drivyo.sharedData.dto.CompanyDTO;
 import Drivyo.sharedData.entity.CompanyEntity;
 import Drivyo.sharedData.exceptions.HttpException;
-import Drivyo.sharedData.services.company.AddCompanySrv;
 import Drivyo.sharedData.services.company.GetCompanySrv;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
